@@ -1,34 +1,79 @@
 import React, { useMemo } from 'react';
 import { useTable } from 'react-table';
 
-const Table = () => {
-    const data = useMemo(
-        () => [
-            {
-                col1: 'Hello',
-                col2: 'World',
-            },
-            {
-                col1: 'react-table',
-                col2: 'rocks',
-            },
-            {
-                col1: 'whatever',
-                col2: 'you want',
-            },
-        ],
-        []
-    )
-
+const Table = ({ data }) => {
+    console.log('data', data)
     const columns = useMemo(
         () => [
             {
-                Header: 'Column 1',
-                accessor: 'col1',
+                Header: 'Team',
+                accessor: 'team',
             },
             {
-                Header: 'Column 2',
-                accessor: 'col2',
+                Header: 'Total Score In Wins',
+                accessor: 'totalScoreInWins',
+            },
+            {
+                Header: 'AVG PF Per Win',
+                accessor: 'averagePFPerWin',
+            },
+            {
+                Header: 'Wins',
+                accessor: 'winCount',
+            },
+            {
+                Header: 'Weeks Won',
+                accessor: ({ weeksWon }) => {
+                    return weeksWon.reduce((acc, week) => {
+                        if (acc) {
+                            return `${acc},${week}`
+                        } else return week
+                    }, null)
+                },
+            },
+            {
+                Header: 'Total Score In Losses',
+                accessor: 'totalScoreInLosses',
+            },
+            {
+                Header: 'Average PF Per Loss',
+                accessor: 'averagePFPerLoss',
+            },
+            {
+                Header: 'Losses',
+                accessor: 'lossCount',
+            },
+            {
+                Header: 'Weeks Lost',
+                accessor: ({ weeksLost }) => {
+                    return weeksLost.reduce((acc, week) => {
+                        if (acc) {
+                            return `${acc},${week}`
+                        } else return week
+                    }, null)
+                },
+            },
+            {
+                Header: 'Total Score',
+                accessor: 'totalScore',
+            },
+            {
+                Header: 'AVG Score',
+                accessor: 'averageScore',
+            },
+            {
+                Header: 'Standard Deviation',
+                accessor: 'standardDeviation',
+            },
+            {
+                Header: 'Scores',
+                accessor: ({ scores }) => {
+                    return scores.reduce((acc, score) => {
+                        if (acc) {
+                            return `${acc},${score}`
+                        } else return score
+                    }, null)
+                },
             },
         ]
     )
