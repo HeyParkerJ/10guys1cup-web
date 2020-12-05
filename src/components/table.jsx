@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
 import { useTable } from 'react-table';
 
+import styles from './table.module.css';
+
 const Table = ({ data }) => {
     console.log('data', data)
     const columns = useMemo(
@@ -90,7 +92,7 @@ const Table = ({ data }) => {
     return (
         // apply the table props
         <table {...getTableProps()}>
-            <thead>
+            <thead style={styles.table}>
                 {// Loop over the header rows
                     headerGroups.map(headerGroup => (
                         // Apply the header row props
@@ -98,7 +100,8 @@ const Table = ({ data }) => {
                             {// Loop over the headers in each row
                                 headerGroup.headers.map(column => (
                                     // Apply the header cell props
-                                    <th {...column.getHeaderProps()}>
+                                    <th {...column.getHeaderProps()}
+                                        style={styles.th}>
                                         {// Render the header
                                             column.render('Header')}
                                     </th>
@@ -119,7 +122,8 @@ const Table = ({ data }) => {
                                     row.cells.map(cell => {
                                         // Apply the cell props
                                         return (
-                                            <td {...cell.getCellProps()}>
+                                            <td {...cell.getCellProps()}
+                                                style={styles.td}>
                                                 {// Render the cell contents
                                                     cell.render('Cell')}
                                             </td>

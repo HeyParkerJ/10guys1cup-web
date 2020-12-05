@@ -1,0 +1,16 @@
+table {
+  border: solid 1px blue;
+}
+
+th {
+  borderbottom: solid 3px red;
+  background: aliceblue;
+  color: black;
+  fontweight: bold;
+}
+
+td {
+  padding: 10px;
+  border: solid 1px gray;
+  background: papayawhip;
+}
