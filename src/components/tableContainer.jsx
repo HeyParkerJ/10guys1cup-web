@@ -5,7 +5,8 @@ import Table from './table';
 const TableContainer = () => {
     const [data, setData] = useState(null);
     useEffect(() => {
-        HttpClients.fetchScoreStats().then(response => setData(response));
+	    // TODO - This needs to be different when not in prod????
+        HttpClients.fetchScoreStats().then(response => response.json()).then(data => setData(data));
     }, []);
 
     const renderTable = () => {
