@@ -17,7 +17,9 @@
     }
   },
   "lint-staged": {
-    "*./**/*.{js,ts,tsx,jsx,json}": ["prettier --write"]
+    "*./**/*.{js,ts,tsx,jsx,json}": [
+      "prettier --write"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -52,6 +54,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-testing-library": "^3.10.1",
+    "html-webpack-plugin": "^4.5.0",
     "husky": "^4.3.4",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
