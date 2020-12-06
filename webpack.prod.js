@@ -10,6 +10,6 @@ module.exports = merge(common, {
     optimization: {
         minimizer: [new TerserPlugin({ /* additional options here */ })],
     },
-    plugins: [new HtmlWebpackPlugin()],
+    //    plugins: [new HtmlWebpackPlugin()],
 });
 
