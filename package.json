@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "deploy": "npm run build && ./deploy.sh",
     "build": "webpack --config webpack.prod.js",
     "start": "webpack serve --open --mode=development --config webpack.dev.js",
     "test": "npm run verify",

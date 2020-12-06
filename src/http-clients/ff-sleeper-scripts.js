@@ -1,5 +1,4 @@
+const url = process.env.NODE_ENV === 'production' ? '10guys1cup.com/api' : 'localhost:3001'
 export default {
-    fetchScoreStats: async () => await fetch('http://localhost:3001/stats/scores')
-        .then(response => response.json())
-        .then(resData => resData)
+    fetchScoreStats: async () => await fetch(`${url}/api/scores`)
 }
