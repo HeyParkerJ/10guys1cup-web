@@ -1,10 +1,9 @@
 import React, { useMemo } from 'react';
-import { useTable } from 'react-table';
+import { useTable, useSortBy } from 'react-table';
 
 import styles from './table.module.css';
 
 const Table = ({ data }) => {
-    console.log('data', data)
     const columns = useMemo(
         () => [
             {
@@ -38,7 +37,7 @@ const Table = ({ data }) => {
                 accessor: 'totalScoreInLosses',
             },
             {
-                Header: 'Average PF Per Loss',
+                Header: 'AVG PF Per Loss',
                 accessor: 'averagePFPerLoss',
             },
             {
@@ -77,9 +76,10 @@ const Table = ({ data }) => {
                     }, null)
                 },
             },
-        ]
+        ],
+        []
     )
-    const tableInstance = useTable({ columns, data })
+    const tableInstance = useTable({ columns, data }, useSortBy)
 
     const {
         getTableProps,
@@ -100,10 +100,17 @@ const Table = ({ data }) => {
                             {// Loop over the headers in each row
                                 headerGroup.headers.map(column => (
                                     // Apply the header cell props
-                                    <th {...column.getHeaderProps()}
+                                    <th {...column.getHeaderProps(column.getSortByToggleProps())}
                                         style={styles.th}>
                                         {// Render the header
                                             column.render('Header')}
+                                        <span>
+                                            {column.isSorted
+                                                ? column.isSortedDesc
+                                                    ? ' 🔽'
+                                                    : ' 🔼'
+                                                : ''}
+                                        </span>
                                     </th>
                                 ))}
                         </tr>
