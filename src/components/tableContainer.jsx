@@ -1,12 +1,14 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import HttpClients from '../http-clients/ff-sleeper-scripts'
 import Table from './table';
+import Dropdown from './Dropdown'
 
 const TableContainer = () => {
     const [data, setData] = useState(null);
+    const [seasonID, setSeasonID] = useState(2021);
     useEffect(() => {
-        HttpClients.fetchScoreStats().then(response => setData(response));
-    }, []);
+        HttpClients.fetchScoreStats(seasonID).then(response => response.json()).then(data => setData(data));
+    }, [seasonID, setData]);
 
     const renderTable = () => {
         return data ? <Table data={data} /> : 'Loading...'
@@ -14,7 +16,8 @@ const TableContainer = () => {
 
     return (
         <div>
-            { renderTable()}
+            <Dropdown selectedSeasonID={seasonID} setSeasonID={setSeasonID} />
+            {renderTable()}
         </div>
     )
 }
