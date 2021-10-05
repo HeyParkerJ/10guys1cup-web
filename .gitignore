@@ -8,6 +8,7 @@
 
 # production
 /public/bundle*
+deploy.sh
 
 # misc
 .DS_Store
