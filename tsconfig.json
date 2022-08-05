@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "module": "esnext",
+    "sourceMap": true,
+    "module": "es6",
     "baseUrl": ".",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -13,10 +14,9 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react",
-    "noFallthroughCasesInSwitch": true
-
+    "noFallthroughCasesInSwitch": true,
+    "outDir": "./dist"
   },
   "include": ["src"]
 }

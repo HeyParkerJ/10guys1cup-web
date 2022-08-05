@@ -1,8 +1,8 @@
 import React from 'react';
 
 const seasons = [2020, 2021]
-const Dropdown = ({ selectedSeasonID, setSeasonID }) => {
-    const updateSeasonID = (e) => {
+const Dropdown = ({ selectedSeasonID, setSeasonID }: { selectedSeasonID: any, setSeasonID: any }): JSX.Element => {
+    const updateSeasonID = (e: any) => {
         console.log('e', e.target.value)
         setSeasonID(e.target.value)
     }

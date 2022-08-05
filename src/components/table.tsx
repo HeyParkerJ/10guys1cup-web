@@ -4,9 +4,9 @@ import { useTable, useSortBy } from 'react-table';
 import styles from './table.module.css';
 import { headers } from './headers';
 
-const Table = ({ data }) => {
-    const columns = useMemo(() => headers, [])
-    const tableInstance = useTable({ columns, data }, useSortBy)
+const Table = ({ data }: { data: any }) => {
+    const columns: any = useMemo(() => headers, [])
+    const tableInstance: any = useTable({ columns, data }, useSortBy)
 
     const {
         getTableProps,
@@ -21,10 +21,12 @@ const Table = ({ data }) => {
         <table {...getTableProps()}>
             <thead style={styles.table}>
                 {// Loop over the header rows
+                    // @ts-ignore
                     headerGroups.map(headerGroup => (
                         // Apply the header row props
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {// Loop over the headers in each row
+                                // @ts-ignore
                                 headerGroup.headers.map(column => (
                                     // Apply the header cell props
                                     <th {...column.getHeaderProps(column.getSortByToggleProps())}
@@ -46,6 +48,7 @@ const Table = ({ data }) => {
             {/* Apply the table body props */}
             <tbody {...getTableBodyProps()}>
                 {// Loop over the table rows
+                    // @ts-ignore
                     rows.map(row => {
                         // Prepare the row for display
                         prepareRow(row)
@@ -53,6 +56,7 @@ const Table = ({ data }) => {
                             // Apply the row props
                             <tr {...row.getRowProps()}>
                                 {// Loop over the rows cells
+                                    // @ts-ignore
                                     row.cells.map(cell => {
                                         // Apply the cell props
                                         return (

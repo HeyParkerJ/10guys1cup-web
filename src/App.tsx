@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TableContainer />
+        <TableContainer selectedSeasonID={undefined} setSeasonID={undefined} />
       </div>
     );
   }
