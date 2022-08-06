@@ -3,7 +3,7 @@ import TableContainer from './components/tableContainer';
 import SeasonSelectionDropdown from './components/seasonSelectionDropdown'
 
 const StatsTablePage = () => {
-    const [selectedSeason, setSelectedSeason] = useState();
+    const [selectedSeason, setSelectedSeason] = useState('2021');
     return (
         <>
             <SeasonSelectionDropdown selectedSeason={selectedSeason} setSelectedSeason={setSelectedSeason} />
