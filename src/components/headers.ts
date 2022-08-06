@@ -70,6 +70,3 @@ export const headers = [
         },
     },
 ]
-module.exports = {
-    headers
-}

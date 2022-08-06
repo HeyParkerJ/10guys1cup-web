@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import HttpClients from '../http-clients/ff-sleeper-scripts'
+import Table from './table'
 
-const seasons = [2020, 2021]
-const Dropdown = ({ selectedSeasonID, setSeasonID }: { selectedSeasonID: any, setSeasonID: any }): JSX.Element => {
-    const updateSeasonID = (e: any) => {
-        console.log('e', e.target.value)
-        setSeasonID(e.target.value)
+const TableContainer = ({ selectedSeason }: { selectedSeason: any }): JSX.Element => {
+    const [data, setData] = useState(null);
+    useEffect(() => {
+        HttpClients.fetchScoreStats(selectedSeason).then(response => response.json()).then(data => setData(data));
+    }, [selectedSeason, setData]);
+
+    const renderTable = () => {
+        return data ? <Table data={data} /> : 'Loading...'
     }
+
     return (
-        <select name="select" value={selectedSeasonID} onChange={updateSeasonID} >
-            {seasons.map((season) => {
-                return (<option value={season} selected={selectedSeasonID === season}>{season}</option>)
-            })}
-        </select>
+        <div>
+            {renderTable()}
+        </div>
     )
 }
 
-export default Dropdown;
+export default TableContainer;

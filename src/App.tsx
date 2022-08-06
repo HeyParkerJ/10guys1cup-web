@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { hot } from "react-hot-loader";
 import "./App.css";
-import TableContainer from './components/tableContainer';
+import StatsTablePage from './StatsTablePage'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <TableContainer selectedSeasonID={undefined} setSeasonID={undefined} />
+        <StatsTablePage />
       </div>
     );
   }
