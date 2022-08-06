@@ -1,4 +1,4 @@
-export const headers = [
+const headers = [
     {
         Header: 'Team',
         accessor: 'team',
@@ -21,7 +21,8 @@ export const headers = [
             return weeksWon.reduce((acc: any, week: any) => {
                 if (acc) {
                     return `${acc},${week}`
-                } else return week
+                }
+                return week
             }, null)
         },
     },
@@ -43,7 +44,8 @@ export const headers = [
             return weeksLost.reduce((acc: any, week: any) => {
                 if (acc) {
                     return `${acc},${week}`
-                } else return week
+                }
+                return week
             }, null)
         },
     },
@@ -65,8 +67,11 @@ export const headers = [
             return scores.reduce((acc: any, score: any) => {
                 if (acc) {
                     return `${acc},${score}`
-                } else return score
+                }
+                return score
             }, null)
         },
     },
 ]
+
+export default headers;

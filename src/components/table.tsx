@@ -1,8 +1,9 @@
+/* eslint-disable no-nested-ternary */
 import React, { useMemo } from 'react';
 import { useTable, useSortBy } from 'react-table';
 
 import styles from './table.module.css';
-import { headers } from './headers';
+import headers from './headers';
 
 const Table = ({ data }: { data: any }) => {
     const columns: any = useMemo(() => headers, [])

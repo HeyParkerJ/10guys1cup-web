@@ -45,4 +45,8 @@ module.exports = {
     browser: true,
     es6: true,
   },
+  globals: {
+    React: true,
+  },
+  ignorePatterns: ["**/*.css", "**/*.d.ts"],
 }
